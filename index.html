@@ -260,36 +260,37 @@
     const iconOfActiveBtn = btnToActive.querySelector("i").dataset.themeIcon('href')
 
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove("active")
-    })
+      element.classList.remove("active");
+    });
 
-    btnToActive.classList.add('active')
-    activeThemeIcon.classList.remove(activeThemeIcon.dataset.themeIconActive);activeThemeIcon
-    activeThemeIcon.classList.add(iconOfActiveBtn)
-    activeThemeIcon.dataset.iconActive = iconOfActiveBtn
-  }
+    btnToActive.classList.add('active');
+    activeThemeIcon.classList.remove(activeThemeIcon.dataset.activeThemeIcon);
+    activeThemeIcon.classList.add(iconOfActiveBtn);
+    activeThemeIcon.dataset.iconActive = iconActiveBtn;
+  };
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (storedTheme !== 'light' || storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener("change", () => {
+    if (storedTheme !== 'light' || storedTheme !== "dark") {
+      setTheme(getPreferredTheme());
     }
-  })
+  });
 
-  window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
+  window.addEventListener("DOMContentLoaded", () => {
+    showActiveTheme(getPreferredTheme());
 
-    document.querySelectorAll('[data-bs-theme-value]')
-      .forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value')
-          localStorage.setItem('theme', theme)
-          setTheme(theme)
-          showActiveTheme(theme)
-        })
-      })
-  })
-})()
+    document.querySelectorAll("[data-bs-theme-value]").forEach(toggle => {
+        toggle.addEventListener("click", () => {
+          const theme = toggle.getAttribute("data-bs-theme-value");
+          localStorage.setItem("theme", theme);
+          setTheme(theme);
+          showActiveTheme(theme);
+        });
+      });
+  });
+})();
     </script>
+    <script type="text/javascript">
 
-  </body>
+    </script>
+</body>
 </html>
