@@ -234,7 +234,7 @@
 (() => {
   'use strict'
 
-  const storedTheme = localStorage.getItem('theme')
+  const storedTheme = localStorage.getItem("theme")
 
   const getPreferredTheme = () => {
     if (storedTheme) {
@@ -242,7 +242,7 @@
     }
 
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  }
+  };
 
   const setTheme = function (theme) {
     if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -255,18 +255,18 @@
   setTheme(getPreferredTheme())
 
   const showActiveTheme = theme => {
-    const activeThemeIcon = document.querySelector('.theme-icon-active')
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-    const iconActiveBtn = btnToActive.querySelector('i').dataset.themeIcon('href')
+    const activeThemeIcon = document.querySelector(".theme-icon-active");
+    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+    const iconOfActiveBtn = btnToActive.querySelector("i").dataset.themeIcon('href')
 
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active')
+      element.classList.remove("active")
     })
 
     btnToActive.classList.add('active')
     activeThemeIcon.classList.remove(activeThemeIcon.dataset.themeIconActive);activeThemeIcon
-    activeThemeIcon.classList.add(iconofActiveBtn)
-    activeThemeIcon.dataset.iconActive = iconActiveBtn
+    activeThemeIcon.classList.add(iconOfActiveBtn)
+    activeThemeIcon.dataset.iconActive = iconOfActiveBtn
   }
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
