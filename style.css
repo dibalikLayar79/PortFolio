@@ -4,7 +4,7 @@
 }
 
 #projects {
-  background-color: rgb(255, 64, 0);
+  background-color: var(--bs-body-bg) rgb(255, 64, 0);
 }
 
 section {
